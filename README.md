@@ -28,4 +28,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 # Deployment IP
-http://nodecommerce-env.tqhbbayxip.us-west-2.elasticbeanstalk.com/
+http://meanstack-env.dpqgxpa23h.us-west-2.elasticbeanstalk.com/products
