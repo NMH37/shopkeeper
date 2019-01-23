@@ -1,0 +1,32 @@
+<mat-card>
+  <mat-card-content>
+    <p *ngIf="mode">Add new product</p>
+  </mat-card-content>
+  <mat-card-content>
+    <p *ngIf="!mode">Edit this Product Information</p>
+  </mat-card-content>
+  <form (submit)="onCreateProduct(productForm)" #productForm="ngForm">
+    <mat-form-field>
+
+      <input matInput type="text" name="name" [ngModel]="product?.name" placeholder="Name" required #name="ngModel" minlength="3">
+      <mat-error *ngIf="name.invalid">Please enter a product name, must be at least 3 characters</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="number" name="quantity" [ngModel]="product?.quantity" placeholder="Quantity" required #quantity="ngModel"
+        min="0">
+      <mat-error *ngIf="quantity.invalid">Quantity cannot be less than 0</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="number" name="price" [ngModel]="product?.price" placeholder="Price" required #price="ngModel" min="1">
+      <mat-error *ngIf="price.invalid">Price needs to be at least $1 </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button type="submit" color="primary"> Add Product </button>
+    <button mat-raised-button (click)="onFormReset(productForm)" color="accent"> Cancel </button>
+  </form>
+
+</mat-card>
+<div *ngIf='errors.length'>
+  <p *ngFor='let error of errors'>{{error}} </p>
+</div>

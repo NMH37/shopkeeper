@@ -1,0 +1,17 @@
+a {
+  text-decoration: none;
+  color: white;
+}
+.sp {
+  flex: 1 1 auto;
+}
+ul, li{
+  list-style-type: none;
+}
+
+ul {
+  display: flex;
+}
+mat-card-header {
+  padding: 1rem;
+}

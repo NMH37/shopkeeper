@@ -1,0 +1,15 @@
+<mat-accordion *ngIf='products.length > 0'>
+  <mat-expansion-panel *ngFor='let product of products'>
+    <mat-expansion-panel-header>
+      {{product?.name}}
+    </mat-expansion-panel-header>
+    <p class='info-text mat-body-1'> Quantity: </p>{{product?.quantity}}
+    <mat-action-row>
+      <a mat-button color="primary" [routerLink]="[ product?._id,'edit' ]"> Edit </a>
+    </mat-action-row>
+    <mat-action-row>
+      <a mat-button color="primary" [routerLink]="[product?._id]"> Detail </a>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<p class='info-text mat-body-1' *ngIf='products.length <= 0'>No Products Yet</p>

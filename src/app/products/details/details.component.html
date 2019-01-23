@@ -1,0 +1,18 @@
+<mat-card class="detail-card">
+  <mat-card-header>
+    <mat-card-title>Details about {{product?.name}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>Quantity : {{product?.quantity}}</mat-card-content>
+
+  <mat-card-content>
+    <p> Price :{{product?.price | currency}}</p>
+  </mat-card-content>
+
+
+  <mat-card-actions *ngIf="canBeDeleted">
+    <button mat-button (click)="onDelete(product?._id)" color="accent">Delete this product</button>
+  </mat-card-actions>
+  <div *ngIf='errors.length'>
+    <p *ngFor='let error of errors'>{{error}} </p>
+  </div>
+</mat-card>
